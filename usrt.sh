@@ -2,7 +2,7 @@
 
 # Print options of script
 function print_options() {
-  local message=$'Options supported by 1_7:
+  local message=$'Options supported by usrt:
 \t -h or --help
 \t\tprint a help message'
   echo "$message"
@@ -10,7 +10,7 @@ function print_options() {
 
 # Print usage
 function print_usage() {
-  local message=$'Usage: [ (optional) command (e.g. echo "user name") | ] ./1-7.sh [ start_usr_id ] [ end_usr_id ] [ (optional, def=10) pass_len ]\n'
+  local message=$'Usage: [ (optional) command (e.g. echo "user name") | ] ./usrt.sh (./1-7.sh) [ start_usr_id ] [ end_usr_id ] [ (optional, def=10) pass_len ]\n'
   echo "$message"
   print_options
 }
