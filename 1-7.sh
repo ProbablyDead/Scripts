@@ -62,6 +62,7 @@ function check_parameters() {
   fi
 }
 
+# Main function
 function main() {
   local start_idx=$1
   local end_idx=$2
