@@ -66,7 +66,8 @@ function check_parameters() {
 function main() {
   local start_idx=$1
   local end_idx=$2
-  local user_name_prefix=$( less <&0 2> /dev/null) # "&0" - standart input is a file w/ descriptor zero, "2> /dev/null" - skip printing errors
+  # local user_name_prefix=$( less <&0 2> /dev/null ) # "&0" - standart input is a file w/ descriptor zero, "2> /dev/null" - skip printing errors
+  read user_name_prefix
   password_length=10
 
   check_parameters $*
@@ -76,7 +77,7 @@ function main() {
   renew_file $file_name
   
   for idx in $( seq $start_idx $end_idx ); do
-    write_to_file $file_name "${user_name_prefix}_$idx,$( create_user_password $password_length)"
+    write_to_file $file_name "${user_name_prefix}_$idx,$( create_user_password $password_length )"
   done
 
   exit 0
