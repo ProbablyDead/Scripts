@@ -62,8 +62,19 @@ function check_parameters() {
   fi
 }
 
+function check_pwgen() {
+  pwgen 2> /dev/null
+
+  if [ ! $? -eq 0 ]; then
+    echo "Command 'pwgen' does not found, install it using 'brew install pwgen'"
+    exit 1
+  fi
+}
+
 # Main function
 function main() {
+  check_pwgen
+
   local start_idx=$1
   local end_idx=$2
   # local user_name_prefix=$( less <&0 2> /dev/null ) # "&0" - standart input is a file w/ descriptor zero, "2> /dev/null" - skip printing errors
